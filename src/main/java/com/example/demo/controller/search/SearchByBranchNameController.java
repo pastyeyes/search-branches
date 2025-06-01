@@ -30,7 +30,7 @@ public class SearchByBranchNameController {
    * TODO: Add fuzzy search for branch names and/or substring search.
    */
   @GetMapping("/search")
-  public ResponseEntity<List<SearchByNameResponse>> invoke(@RequestParam("keyword") String branchName) {
+  public ResponseEntity<List<SearchByBranchNameResponse>> invoke(@RequestParam("keyword") String branchName) {
     if(branchName.isBlank()){
       throw new IllegalArgumentException("Branch name cannot be empty");
     }
