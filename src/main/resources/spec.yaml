@@ -1,0 +1,69 @@
+openapi: 3.0.0
+info:
+  version: v1.0
+  title: BNZ Technical Test - Back End (Java/Spring Boot) API spec
+  description: This is the API spec for your reference to implement the take away test.
+
+paths:
+  /search:
+    get:
+      description: search by keyword
+      parameters:
+        - in: query
+          name: keyword
+          schema:
+            type: string
+          required: true
+          description: the keyword for searching
+          example: abcd
+      responses:
+        200:
+          $ref: "#/components/responses/search"
+        400:
+          $ref: "#/components/responses/error"
+        404:
+          $ref: "#/components/responses/error"
+
+components:
+  responses:
+    search:
+      description: success
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              data:
+                description: data
+                type: array
+                items:
+                  $ref: "#/components/schemas/searchResultItem"
+
+    error:
+      description: error
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              error:
+                description: error message
+                type: string
+                example: a keyword is mandatory
+
+  schemas:
+    searchResultItem:
+      type: object
+      properties:
+        code:
+          type: number
+          description: bank branch code
+          example: 1
+        name:
+          type: string
+          description: bank branch name
+          example: Whitmore Street branch
+        cost:
+          type: number
+          description: daily running cost
+          example: 1234.54

@@ -1,0 +1,10 @@
+{
+  "branches": [
+    {"code": 1, "name": "Whitmore Street branch", "cost": "1234"},
+    {"code": 2, "name": "Wellington branch", "cost":  "9999999999"},
+    {"code": 3, "name": "Kilbirnie branch", "cost": "4321"},
+    {"code": 5, "name": "North End branch", "cost": "7890"},
+    {"code": 9, "name": "Lower Hutt branch"},
+    {"code": 11, "cost": "-1"}
+  ]
+}
