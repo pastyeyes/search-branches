@@ -5,9 +5,9 @@ import java.math.RoundingMode;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 
-public record SearchByNameResponse(short code, String name, @JsonInclude(JsonInclude.Include.NON_NULL) BigDecimal cost) {
+public record SearchByBranchNameResponse(short code, String name, @JsonInclude(JsonInclude.Include.NON_NULL) BigDecimal cost) {
     // Ensures the cost is formatted to two decimal places, rounding up.
-    public SearchByNameResponse {
+    public SearchByBranchNameResponse {
       if (cost != null) {
           cost = cost.setScale(2, RoundingMode.HALF_UP);
       }
